@@ -1,0 +1,75 @@
+<button type="button" class="btn btn-inverse-info btn-fw" data-toggle="modal" data-target="#{{$x->nidn}}"><i
+        class="ti-pencil btn-icon-append"></i></button>
+
+<div style="text-align:left" class="modal fade" id="{{$x->nidn}}" tabindex="-1" role="dialog"
+    aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Update Data
+                    Dosen</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form action="/updateDsn/{{$x->nidn}}" method="POST" enctype="multipart/form-data">
+                {{ csrf_field() }}
+                <div class="modal-body">
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-xl-6 col-md-6">
+                                <label for="nidn">NIDN</label>
+                                <input type="text" class="form-control" id="nidn" placeholder="Masukan NIDN" name="nidn"
+                                    value="{{$x->nidn}}" required="required">
+                            </div>
+                            <div class="col-xl-6 col-xl-6">
+                                <label for="nidn">Nama Lengkap</label>
+                                <input type="text" class="form-control" id="nama" placeholder="Masukan Nama Lengkap"
+                                    name="nama_dosen" value="{{$x->nama_dosen}}" required="required">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="nidn">Alamat</label>
+                        <input type="text" class="form-control" id="alamat" placeholder="Masukan Alamat Lengkap"
+                            name="alamat_dosen" value="{{$x->alamat_dosen}}" required="required">
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-xl-6 col-md-6">
+                                <label for="nidn">No Telpon</label>
+                                <input type="text" class="form-control" id="hp" placeholder="Masukan Nomor Telpon"
+                                    name="noHp_dosen" value="{{$x->noHp_dosen}}" required="required">
+                            </div>
+                            <div class="col-xl-6 col-xl-6">
+                                <label for="nidn">Email</label>
+                                <input type="text" class="form-control" id="email" placeholder="Masukan Email"
+                                    name="email_dosen" value="{{$x->email_dosen}}">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputFile">Foto</label>
+                        <input type="file" name="foto_dosen" class="form-control">
+                        <input type="hidden" value="{{$x->foto_dosen}}" name="pathFoto" class="form-control">
+                        <img src="{{asset('/'.$x->foto_dosen)}}" width="75px" height="auto">
+                    </div>
+                    <div class="modal-footer border-top-0 d-flex justify-content-center">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" value="Simpan Data" class="btn btn-primary">Save</button>
+                    </div>
+                </div>
+            </form>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div>
+<!--Modal Add Data Close-->
+
+<!--
+                                        <form action="/deleteJadwal/{{$x->kd_jadwal}}" method="POST" onsubmit="return">
+                                        @method('delete')
+                                        @csrf
+                                        <button class="btn btn-inverse-danger btn-fw"><i
+                                                class="ti-trash btn-icon-append"></i></button>
+                                    </form>
+                                     -->
